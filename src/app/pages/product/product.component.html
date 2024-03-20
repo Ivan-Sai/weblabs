@@ -1,0 +1,24 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="bg-white items-center rounded-lg overflow-hidden flex flex-col justify-center md:flex-row">
+    <div class="">
+      <img ngSrc="{{product?.image}}" alt="" class="h-96 max-w-80 object-contain mb-6">
+    </div>
+    <div class="p-8  md:w-1/3">
+      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{{product?.category}}</div>
+      <p class="block mt-1 text-lg leading-tight font-medium text-black">{{product?.title}}</p>
+      <p class="mt-2 text-gray-500">{{product?.description}}</p>
+      <div class="mt-4">
+        <span class="text-teal-600 text-xl font-bold">${{product?.price}}</span>
+      </div>
+      <div class="mt-4 flex items-center">
+        <span class="material-symbols-outlined text-yellow-400">star</span>
+        {{product?.rating?.rate}}
+      </div>
+      <div class="mt-6">
+        <button (click)="addToCart()" class="min-w-40 h-10" [ngClass]="{'bg-green-500': isClicked, 'bg-blue-500': !isClicked, 'hover:bg-green-700': !isClicked, disabled:' isClicked','text-white': true, 'font-bold': true, 'py-2': true, 'px-4': true, 'rounded': true}">
+          <span class="material-symbols-outlined" *ngIf="isClicked">done</span>
+          <span *ngIf="!isClicked">Add to cart</span>
+        </button>      </div>
+    </div>
+  </div>
+</div>

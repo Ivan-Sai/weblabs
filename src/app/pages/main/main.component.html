@@ -1,0 +1,24 @@
+<main class="my-8">
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let product of products" class="bg-white overflow-hidden shadow rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl">
+        <div class="p-6 flex flex-col h-full">
+          <img (click)="goToPage('product/' + product.id)" class="cursor-pointer h-48 w-full object-contain mb-6" [src]="product.image" alt="{{product.title}}">
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <h2 (click)="goToPage('product/' + product.id)" class="font-bold text-xl mb-2 cursor-pointer">{{product.title}}</h2>
+              <p class="text-gray-700 text-base mb-4 line-clamp-3 overflow-hidden">
+                {{product.description}}
+              </p>
+            </div>
+            <div class="mt-auto">
+              <p>${{product.price}}</p>
+              <span class="flex items-center"><p>Rating:</p><span class="material-symbols-outlined text-yellow-400 text-center">star</span> <p>{{product.rating.rate}}</p> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
